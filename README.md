@@ -1,5 +1,3 @@
-# MalvAI Analyzer: GenAI-Powered End-to-End Fraudulent APK Analysis Platform
-
 MalvAI Analyzer is an advanced, automated, and end-to-end security analysis system designed to deconstruct, analyze, and report on fraudulent Android applications (APKs) using a hybrid approach of traditional reverse-engineering tools and **Google's Gemini API** as the core GenAI backbone.
 
 Unlike standard rule-based scanners or basic ML tabular classifiers, MalvAI Analyzer serves as an automated AI-reverse engineer. It extracts structural blueprints, bytecode, and network signatures from unknown APKs, correlates them with global threat intelligence via Retrieval-Augmented Generation (RAG), and uses **Gemini's** advanced code interpretation capabilities to explain *exactly* what malicious code sections do in plain, actionable human language.
@@ -7,7 +5,6 @@ Unlike standard rule-based scanners or basic ML tabular classifiers, MalvAI Anal
 ---
 
 ## 🚀 Key Differentiators & Why This Wins
-
 1. **True GenAI Centricity:** Instead of bolting on an LLM as a superficial chatbot, MalvAI integrates **Google Gemini** directly into the core analysis pipeline—interpreting decompiled Smali/Java code, translating obfuscated control flows, and drafting high-fidelity risk assessments.
 
 2. **Visceral Demo Story:** A highly interactive frontend dashboard allows judges and users to upload a live malicious APK and watch a real-time asynchronous pipeline disassemble the app, flag runtime risks, and stream a comprehensive AI threat analysis report.
@@ -17,7 +14,6 @@ Unlike standard rule-based scanners or basic ML tabular classifiers, MalvAI Anal
 ---
 
 ## 🛠️ System Architecture & Tech Stack
-
 ```
                      ┌────────────────────────────────────────────────────────┐
                      │                   React / Next.js UI                   │
@@ -47,8 +43,6 @@ Unlike standard rule-based scanners or basic ML tabular classifiers, MalvAI Anal
                     └───────────────────┘  └───────────────────┘   └─────────────────────────┘
 ```
 
-### 📦 Components Breakdown
-
 * **Frontend Dashboard:** Built with **React / Next.js**, **TailwindCSS**, and **Shadcn/ui**. Displays real-time analysis logs, risk scoring rings, interactive call graphs, and a comprehensive, sectioned AI analysis page.
 
 * **Backend Orchestrator:** **FastAPI** manages file ingestion, WebSocket connections for live progress streaming, and metadata management.
@@ -73,7 +67,6 @@ Unlike standard rule-based scanners or basic ML tabular classifiers, MalvAI Anal
 ---
 
 ## 📋 Directory Structure
-
 ```text
 malvai-analyzer/
 ├── .github/workflows/       # CI/CD Automated Pipelines
@@ -108,7 +101,6 @@ malvai-analyzer/
 ---
 
 ## ⚡ Execution Pipeline
-
 ```text
 [APK Upload] ──> [Celery Task Created]
                       │
@@ -119,7 +111,7 @@ malvai-analyzer/
                       │
                       ├──> [2. Dynamic Analysis]
                       │     ├── Spin up sandboxed Android Emulator
-                      │     ├── Install APK & inject Frida instrumentation hooks
+                      │     ├── install APK & inject Frida instrumentation hooks
                       │     ├── Capture runtime file access & SMS read attempts
                       │     └── Log network traffic (.pcap)
                       │
@@ -133,17 +125,13 @@ malvai-analyzer/
 
 ---
 
-## 🛠️ Local Setup & Installation
-
 ### Prerequisites
-
 * Docker & Docker Compose
 * Python 3.10+
 * Android SDK (for local emulator access, if running outside dockerized dynamic environments)
 * **Google Gemini API Key** — Obtain from [Google AI Studio](https://aistudio.google.com/apikey)
 
 ### Configuration Environment
-
 Create a `.env` file within the `backend/` directory:
 
 ```env
@@ -155,7 +143,6 @@ EMULATOR_HOST=localhost:5555
 ```
 
 ### Spin up the Entire Stack
-
 Using Docker Compose, you can launch the database, caching layers, backend workers, and web frontend concurrently:
 
 ```bash
@@ -175,7 +162,6 @@ Once the containers finish building and boot up:
 ---
 
 ## 🔍 Core Focus: The GenAI Advantage
-
 Traditional analysis stops at showing an engineer a line of cryptic decompiled assembly/smali code like:
 
 ```smali
@@ -189,7 +175,6 @@ invoke-virtual {v0, v1, v2}, Landroid/telephony/SmsManager;->sendTextMessage(Lja
 ---
 
 ## 🤖 Why Gemini?
-
 | Feature | Benefit for MalvAI |
 |---|---|
 | **1M+ Token Context Window** | Analyze entire decompiled APK codebases in a single pass without chunking or context loss |
@@ -202,5 +187,4 @@ invoke-virtual {v0, v1, v2}, Landroid/telephony/SmsManager;->sendTextMessage(Lja
 ---
 
 ## 📄 License
-
 Distributed under the MIT License. See `LICENSE` for more information.
