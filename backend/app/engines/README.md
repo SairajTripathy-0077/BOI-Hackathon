@@ -54,12 +54,3 @@ GEMINI_API_KEY=your_key_here
 
 If no key is set, the engine still returns a deterministic local summary.
 
-## Next phase
-
-After this static MVP works, add:
-
-- JADX/APKTool integration for better manifest and code extraction
-- YARA rules for known malware families
-- Dynamic engine with emulator and Frida
-- PCAP/network capture
-- FastAPI upload route that calls this engine
